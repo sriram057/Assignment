@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #007BFF; /* Set the body background to blue */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff; /* Set the text color to white */
+        }
+
+        form {
+            background-color: #fff; /* Set the form background to white */
+            color: #333; /* Set the text color inside the form to dark gray */
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        label[for="gender"] {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        #gender-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #popup {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        #popup h2 {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        #popup p {
+            margin: 10px;
+        }
+
+        #popup button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Survey Form</h1>
+    <form id="surveyForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" required><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" required><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" required><br>
+
+        <label for="country">Country:</label>
+        <select id="country" required>
+            <option value="">None</option> <!-- Default option to show no selected option -->
+            <option value="USA">United States</option>
+            <option value="Canada">Canada</option>
+            <option value="India">India</option> <!-- New option for India -->
+            <!-- Add more countries as needed -->
+        </select><br>
+
+        <label for="gender">Gender:</label>
+        <div id="gender-container">
+            <input type="checkbox" id="male" name="gender" value="Male">
+            <label for="male">Male</label>
+            <input type="checkbox" id="female" name="gender" value="Female">
+            <label for="female">Female</label>
+        </div><br>
+
+        <label for="profession">Profession:</label>
+        <input type="text" id="profession" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required><br>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" required><br>
+
+        <button type="button" id="submitBtn">Submit</button>
+        <button type="button" id="resetBtn">Reset</button>
+    </form>
+
+    <div id="popup" style="display: none;">
+        <h2>Survey Form Submission</h2>
+        <p>First Name: <span id="popupFirstName"></span></p>
+        <p>Last Name: <span id="popupLastName"></span></p>
+        <p>Date of Birth: <span id="popupDob"></span></p>
+        <p>Country: <span id="popupCountry"></span></p>
+        <p>Gender:
